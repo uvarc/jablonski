@@ -17,7 +17,7 @@ spec:
         primary:
           resources:
             limits:
-              cpu: 250m
+              cpu: 251m
               memory: 2000Mi
             requests:
               cpu: 250m
