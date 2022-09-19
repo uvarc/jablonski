@@ -31,7 +31,7 @@ spec:
             existingClaim: "jablonski-mysql-nfs-pvc"
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: jablonski
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
