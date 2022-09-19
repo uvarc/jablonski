@@ -1,37 +1,37 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: jablonski-mysql
-#   namespace: argocd
-# spec:
-#   project: jablonski
-#   source:
-#     chart: mysql
-#     repoURL: https://charts.bitnami.com/bitnami
-#     targetRevision: 9.3.1
-#     helm:
-#       releaseName: jablonski-mysql
-#       values: |-
-#         fullnameOverride: "jablonski-mysql"
-#         namespaceOverride: "jablonski"
-#         primary:
-#           resources:
-#             limits:
-#               cpu: 250m
-#               memory: 2000Mi
-#             requests:
-#               cpu: 250m
-#               memory: 2000Mi
-#           persistence:
-#             enabled: true
-#             existingClaim: "jablonski-mysql-nfs-pvc"
-#   destination:
-#     server: "https://kubernetes.default.svc"
-#     namespace: jablonski
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#       allowEmpty: true
-#     syncOptions:
-#     - CreateNamespace=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jablonski-mysql
+  namespace: argocd
+spec:
+  project: jablonski
+  source:
+    chart: mysql
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 9.3.1
+    helm:
+      releaseName: jablonski-mysql
+      values: |-
+        fullnameOverride: "jablonski-mysql"
+        namespaceOverride: "jablonski"
+        primary:
+          resources:
+            limits:
+              cpu: 250m
+              memory: 2000Mi
+            requests:
+              cpu: 250m
+              memory: 2000Mi
+          persistence:
+            enabled: true
+            existingClaim: "jablonski-mysql-nfs-pvc"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: jablonski
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+    - CreateNamespace=true
