@@ -7,7 +7,7 @@ metadata:
   namespace: jablonski
 spec:
   dnsNames:
-    - 	vce-app-ed.pods.uvarc.io
+    - vce-app-ed.pods.uvarc.io
   secretName: jablonski-vce-app-editor2-nginx-tls-ingress-secret
   issuerRef:
     name: letsencrypt-cluster-issuer
