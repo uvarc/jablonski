@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jablonski-vce-app-service
+  namespace: uvarc-services
+spec:
+  selector:
+    app: jablonski-vce-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80

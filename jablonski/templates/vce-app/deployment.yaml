@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jablonski-vce-app-deployment
+  namespace: jablonski
+  labels:
+    app: jablonski-vce-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jablonski-vce-app
+  template:
+    metadata:
+      labels:
+        app: jablonski-vce-app
+    spec:
+      volumes:
+      - name: jablonski-vce-app-nfs-volume
+        persistentVolumeClaim:
+          claimName: jablonski-vce-app-nfs-pvc # name of pvc
+      containers:
+      - name: jablonski-vce-app-container
+        image: uvarc/vce-app:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: jablonski-vce-app-nfs-volume
+          mountPath: /project/DSone/jaj4zcf/Videos/write # mount inside of container
+#        env:
+#        - name:
+#          value: ""
+        resources:
+          requests:
+            memory: "1050Mi"
+            cpu: "0.5"
+          limits:
+            memory: "2050Mi"
+            cpu: "1"
+            
