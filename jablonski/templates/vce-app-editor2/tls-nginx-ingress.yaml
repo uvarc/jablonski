@@ -1,27 +1,27 @@
-# apiVersion: networking.k8s.io/v1beta1
-# kind: Ingress
-# metadata:
-#   annotations:
-#     kubernetes.io/ingress.class: nginx
-#     nginx.ingress.kubernetes.io/rewrite-target: /
-#     #nginx.org/websocket-services: "jablonski-vce-app-editor2-service"
-#     acme.cert-manager.io/http01-edit-in-place: "true"
-#     #nginx.org/proxy-connect-timeout: "600s"
-#     #nginx.org/proxy-read-timeout: "600s"
-#     #nginx.org/proxy-send-timeout: "600s"
-#   name: jablonski-vce-app-editor2-tls-nginx-ingress
-#   namespace: jablonski
-# spec:
-#   rules:
-#     - host: vce-app-ed.pods.uvarc.io
-#       http:
-#         paths:
-#           - backend:
-#               serviceName: jablonski-vce-app-editor2-service
-#               servicePort: 8080
-#             path: /
-#     #This section is only required if TLS is to be enabled for the Ingress
-#   tls:
-#       - hosts:
-#           - 	vce-app-ed.pods.uvarc.io
-#         secretName: jablonski-vce-app-editor2-nginx-tls-ingress-secret
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    #nginx.org/websocket-services: "jablonski-vce-app-editor2-service"
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    #nginx.org/proxy-connect-timeout: "600s"
+    #nginx.org/proxy-read-timeout: "600s"
+    #nginx.org/proxy-send-timeout: "600s"
+  name: jablonski-vce-app-editor2-tls-nginx-ingress
+  namespace: jablonski
+spec:
+  rules:
+    - host: vce-app-ed.pods.uvarc.io
+      http:
+        paths:
+          - backend:
+              serviceName: jablonski-vce-app-editor2-service
+              servicePort: 8080
+            path: /
+    #This section is only required if TLS is to be enabled for the Ingress
+  tls:
+      - hosts:
+          - vce-app-ed.pods.uvarc.io
+        secretName: jablonski-vce-app-editor2-nginx-tls-ingress-secret
