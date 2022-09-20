@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  name: jablonski-vce-app-editor2-nginx-selfsigned-certificate
+  namespace: jablonski
+spec:
+  dnsNames:
+    - 	vce-app-ed.pods.uvarc.io
+  secretName: jablonski-vce-app-editor2-nginx-tls-ingress-secret
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
