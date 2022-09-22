@@ -21,7 +21,7 @@ spec:
           claimName: jablonski-vce-app-nfs-pvc # name of pvc
       containers:
       - name: jablonski-vce-app-container
-        image: uvarc/vce-app:latest
+        image: ghcr.io/uvarc/vce-app:{{ .Values.version.vceApp }}
         ports:
         - containerPort: 80
         volumeMounts:
