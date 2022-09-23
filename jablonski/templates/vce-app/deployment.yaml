@@ -34,6 +34,11 @@ spec:
           value: "vceapp"
         - name: DBHOST
           value: "somrc-mysql-rds.cuovd4ygikd7.us-east-1.rds.amazonaws.com"
+        - name: "DBPASS"
+          valueFrom:
+            secretKeyRef:
+              name: jablonski-vce-secrets
+              key: DBPASS   
         resources:
           requests:
             memory: "4096Mi"
@@ -41,4 +46,3 @@ spec:
           limits:
             memory: "4096Mi"
             cpu: "1"
-            
