@@ -29,9 +29,9 @@ spec:
           mountPath: /project/DSone/jaj4zcf/Videos/write # mount inside of container
         env:
         - name: DBNAME
-          value: "xx"
+          value: "vce"
         - name: DBUSER
-          value: "xx"
+          value: "vceapp"
         - name: DBHOST
           value: "somrc-mysql-rds.cuovd4ygikd7.us-east-1.rds.amazonaws.com"
         resources:
