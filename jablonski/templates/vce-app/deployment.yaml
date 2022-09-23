@@ -27,14 +27,18 @@ spec:
         volumeMounts:
         - name: jablonski-vce-app-nfs-volume
           mountPath: /project/DSone/jaj4zcf/Videos/write # mount inside of container
-#        env:
-#        - name:
-#          value: ""
+        env:
+        - name: DBNAME
+          value: "xx"
+        - name: DBUSER
+          value: "xx"
+        - name: DBHOST
+          value: "somrc-mysql-rds.cuovd4ygikd7.us-east-1.rds.amazonaws.com"
         resources:
           requests:
-            memory: "1050Mi"
-            cpu: "0.5"
+            memory: "4096Mi"
+            cpu: "1"
           limits:
-            memory: "2050Mi"
+            memory: "4096Mi"
             cpu: "1"
             
